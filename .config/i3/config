@@ -47,7 +47,7 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
-bindsym $mod+cedilla focus right
+bindsym $mod+ccedilla focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -59,7 +59,7 @@ bindsym $mod+Right focus right
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
-bindsym $mod+Shift+cedilla move right
+bindsym $mod+Shift+ccedilla move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
