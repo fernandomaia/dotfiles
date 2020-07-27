@@ -101,6 +101,7 @@ export LANG=en_US.UTF-8
 #. /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias vim='nvim'
 
 #export PATH="/home/fmaia/.local/bin"
 
@@ -110,3 +111,5 @@ export PYTHONPATH=$PYTHONPATH:.
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
