@@ -65,6 +65,7 @@ plugins=(
   git
   systemd
   z
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -106,6 +107,9 @@ alias vim='nvim'
 #export PATH="/home/fmaia/.local/bin"
 
 export PATH="$PATH:$HOME/.npm-global/bin"
+
+# Set up Node Version Manager
+source /usr/share/nvm/init-nvm.sh
 
 export PYTHONPATH=$PYTHONPATH:.
 
