@@ -94,6 +94,8 @@ export PATH=~/.yarn/bin:$PATH
 
 if [[ `uname` == "Darwin" ]]; then
   . /opt/homebrew/opt/asdf/asdf.sh
+else
+  . $HOME/.asdf/asdf.sh
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
