@@ -8,6 +8,9 @@ export LC_ALL=en_US.UTF-8
 
 ZSH_THEME="spaceship"
 
+export XDG_CONFIG_HOME=$HOME/.config/
+
+alias vim="nvim"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -62,7 +65,7 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -78,6 +81,10 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+
+for i in `find -L $XDG_CONFIG_HOME/zsh`; do
+  source $i
+done
 
 if hash nvim 2>/dev/null; then
   export EDITOR=nvim
