@@ -8,7 +8,7 @@ export LC_ALL=en_US.UTF-8
 
 ZSH_THEME="spaceship"
 
-export XDG_CONFIG_HOME=$HOME/.config/
+export XDG_CONFIG_HOME=$HOME/.config
 
 alias vim="nvim"
 # Uncomment the following line to use case-sensitive completion.
