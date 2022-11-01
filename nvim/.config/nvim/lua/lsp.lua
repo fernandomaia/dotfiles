@@ -96,10 +96,9 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'solargraph', 'tsserver', 'gopls' }
-local capabilities = require('cmp_nvim_lsp').update_capabilities(
-  vim.lsp.protocol.make_client_capabilities()
-)
+local servers = { 'solargraph', 'tsserver', 'gopls', 'bashls' }
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     capabilities = capabilities,
