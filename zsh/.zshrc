@@ -106,3 +106,5 @@ else
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+weather() { curl -s https://wttr.in/$1 }
