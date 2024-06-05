@@ -203,6 +203,9 @@ bindsym $mod+Mod4+p exec maim -u -i $(xdotool getactivewindow) | xclip -selectio
 # Enable float for some windows
 for_window [class="^Arandr$"]       floating enable
 
+# Disable synaptic touchpad while typing for .5 sec and daemonize
+exec --no-startup-id "syndaemon -i 0.5 K -d"
+
 # Lock screen stuff
 set $Locker exec betterlockscreen -l dim
 bindsym Mod4+l $Locker
