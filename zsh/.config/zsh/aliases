@@ -1,0 +1,17 @@
+# File System
+alias ls='eza -lh --group-directories-first --icons'
+alias lsa='ls -a'
+alias lt='eza --tree --level=2 --long --icons --git'
+alias lta='lt -a'
+alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
+
+# Tools
+alias vim="nvim"
+
+# Compression
+compress() { tar -czf "${1%/}.tar.gz" "${1%/}"; }
+alias decompress="tar -xzf"
+
+# Etc
+weather() { curl -s https://wttr.in/$1 }
+
