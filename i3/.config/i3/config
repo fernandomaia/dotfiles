@@ -40,7 +40,7 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons
+bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -font "Inconsolata 12"
 
 # change focus
 bindsym $mod+h focus left
@@ -181,8 +181,8 @@ bindsym Mod1+Tab focus right
 bindsym Mod1+Shift+Tab focus left
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id changevolume up
+bindsym XF86AudioLowerVolume exec --no-startup-id changevolume down
 bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle
 bindsym XF86AudioMicMute exec amixer sset Capture toggle && amixer -c0 sset Capture toggle
 
@@ -211,8 +211,7 @@ set $Locker exec betterlockscreen -l dim
 bindsym Mod4+l $Locker
 # Missing lock screen when xautolock runs
 #exec --no-startup-id xautolock -time 1 -locker "xset dpms force off" -corners 000- -notify 10 -notifier "notify-send -u critical -t 10000 'LOCKING in 10s'"
-
-exec --no-startup-id xautolock -time 5 -locker "xset dpms force off" -corners 000- -notify 10 -notifier "notify-send -u critical -t 10000 'LOCKING in 10s'"
+exec --no-startup-id xautolock -time 5 -locker "xset dpms force off" -corners 000- -notify 11 -notifier "notify-send -t 10000 'LOCKING in 10s'"
 exec --no-startup-id xautolock -time 7 -locker "systemctl suspend" -corners +00-
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -e --indicator --pass-media-keys --pass-screen-keys &
 
