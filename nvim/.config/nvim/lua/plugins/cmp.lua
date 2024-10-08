@@ -10,7 +10,9 @@ return {
     },
   },
   {
-    "hrsh7th/nvim-cmp",
+    "yioneko/nvim-cmp",
+    branch = "perf",
+    event = "InsertEnter",
     config = function()
       -- Set up nvim-cmp.
       local cmp = require("cmp")
@@ -28,17 +30,19 @@ return {
           documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
+          ['<C-n>'] = cmp.mapping.select_next_item(),
+          ['<C-p>'] = cmp.mapping.select_prev_item(),
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-y>'] = cmp.mapping.confirm({ select = true }),
           ['<C-e>'] = cmp.mapping.abort(),
-          ['<CR>'] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
         }, {
-          { name = 'buffer' },
+          { name = 'buffer', keyword_length = 4 },
         })
       })
 
