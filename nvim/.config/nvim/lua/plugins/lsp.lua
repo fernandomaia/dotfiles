@@ -1,7 +1,10 @@
+-- Heavily inspired by https://github.com/josean-dev/dev-environment-files. Thanks, Josean!
+
 return {
   "neovim/nvim-lspconfig",
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    -- LSP Support
+    "hrsh7th/cmp-nvim-lsp",
     {"williamboman/mason.nvim"},
     {"williamboman/mason-lspconfig.nvim"},
   },
@@ -83,7 +86,6 @@ return {
       ["lua_ls"] = function()
         -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({
-          capabilities = capabilities,
           settings = {
             Lua = {
               -- make the language server recognize "vim" global
@@ -100,7 +102,6 @@ return {
       ["ruby_lsp"] = function()
         -- configure ruby language server
         lspconfig["ruby_lsp"].setup({
-          capabilities = capabilities,
           cmd = { vim.fn.expandcmd("~/.local/share/mise/shims/ruby-lsp") },
         })
       end,
