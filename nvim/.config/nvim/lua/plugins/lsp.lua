@@ -76,6 +76,10 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
+    lspconfig.ruby_lsp.setup{
+      capabilities = capabilities
+    }
+
     mason_lspconfig.setup_handlers({
       -- default handler for installed servers
       function(server_name)
@@ -97,12 +101,6 @@ return {
               },
             },
           },
-        })
-      end,
-      ["ruby_lsp"] = function()
-        -- configure ruby language server
-        lspconfig["ruby_lsp"].setup({
-          cmd = { vim.fn.expandcmd("~/.local/share/mise/shims/ruby-lsp") },
         })
       end,
     })
