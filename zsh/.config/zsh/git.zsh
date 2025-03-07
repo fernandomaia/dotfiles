@@ -1,5 +1,3 @@
-alias gfc='git branch | fzf | xargs git checkout'
-
 sync_branches() {
   git remote prune origin
   for merged_branch in $(git for-each-ref --format '%(refname:short)' --merged HEAD refs/heads/)

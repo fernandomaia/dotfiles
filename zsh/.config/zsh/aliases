@@ -5,6 +5,10 @@ alias lt='eza --tree --level=2 --long --icons --git'
 alias lta='lt -a'
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 
+# Git
+alias gfc='git branch | fzf | xargs git checkout'
+alias gbo='gh browse -b $(git branch --show-current)'
+
 # Tools
 alias vim="nvim"
 
@@ -14,4 +18,3 @@ alias decompress="tar -xzf"
 
 # Etc
 weather() { curl -s https://wttr.in/$1 }
-
