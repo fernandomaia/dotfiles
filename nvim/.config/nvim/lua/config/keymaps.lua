@@ -16,6 +16,10 @@ vim.keymap.set("n", "<leader>Y", "\"+Y")
 vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 
+-- Split window
+vim.keymap.set("n", "ss", ":split<Return>")
+vim.keymap.set("n", "sv", ":vsplit<Return>")
+
 -- Dismiss Noice message
 vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice message" })
 
