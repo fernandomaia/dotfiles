@@ -80,7 +80,7 @@ return {
       capabilities = capabilities
     }
 
-    mason_lspconfig.setup_handlers({
+    mason_lspconfig.setup({
       -- default handler for installed servers
       function(server_name)
         lspconfig[server_name].setup({
