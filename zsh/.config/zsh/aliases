@@ -1,16 +1,20 @@
 # File System
-alias ls='eza -lh --group-directories-first --icons=auto'
-alias lsa='ls -a'
-alias lt='eza --tree --level=2 --long --git --icons=auto'
-alias lta='lt -a'
-alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
+if type -q eza &> /dev/null; then
+  alias ls='eza -lh --group-directories-first --icons=auto'
+  alias lsa='ls -a'
+  alias lt='eza --tree --level=2 --long --git --icons=auto'
+  alias lta='lt -a'
+  alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
+fi
 
 # Git
 alias gfc='git branch | fzf | xargs git checkout'
 alias gbo='gh browse -b $(git branch --show-current)'
 
 # Tools
-alias vim="nvim"
+if type -q nvim &> /dev/null; then
+  alias vim="nvim"
+fi
 
 # Compression
 compress() { tar -czf "${1%/}.tar.gz" "${1%/}"; }
