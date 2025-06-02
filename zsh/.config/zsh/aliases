@@ -1,5 +1,5 @@
 # File System
-if type -q eza &> /dev/null; then
+if command -v eza >/dev/null 2>&1; then
   alias ls='eza -lh --group-directories-first --icons=auto'
   alias lsa='ls -a'
   alias lt='eza --tree --level=2 --long --git --icons=auto'
@@ -12,7 +12,7 @@ alias gfc='git branch | fzf | xargs git checkout'
 alias gbo='gh browse -b $(git branch --show-current)'
 
 # Tools
-if type -q nvim &> /dev/null; then
+if command -v nvim >/dev/null 2>&1; then
   alias vim="nvim"
 fi
 
