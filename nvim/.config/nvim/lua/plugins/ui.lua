@@ -33,4 +33,16 @@ return {
       vim.notify = require("notify")
     end
   },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown", "Avante" },
+    opts = {
+      file_types = { "markdown", "Avante" },
+      code = {
+        style = "language",
+        sign = false,
+        border = "thick",
+      },
+    },
+  },
 }
