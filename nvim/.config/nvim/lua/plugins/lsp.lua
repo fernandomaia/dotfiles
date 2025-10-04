@@ -9,7 +9,6 @@ return {
     {"williamboman/mason-lspconfig.nvim"},
   },
   config = function()
-    local lspconfig = require("lspconfig")
     local mason_lspconfig = require("mason-lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -70,39 +69,44 @@ return {
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
     -- Change the Diagnostic symbols in the sign column (gutter)
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
-
-    lspconfig.ruby_lsp.setup{
-      capabilities = capabilities
-    }
-
-    mason_lspconfig.setup({
-      -- default handler for installed servers
-      function(server_name)
-        lspconfig[server_name].setup({
-          capabilities = capabilities,
-        })
-      end,
-      ["lua_ls"] = function()
-        -- configure lua server (with special settings)
-        lspconfig["lua_ls"].setup({
-          settings = {
-            Lua = {
-              -- make the language server recognize "vim" global
-              diagnostics = {
-                globals = { "vim" },
-              },
-              completion = {
-                callSnippet = "Replace",
-              },
-            },
-          },
-        })
-      end,
+    vim.diagnostic.config({
+      virtual_text = true,
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = " ",
+          [vim.diagnostic.severity.WARN] = " ",
+          [vim.diagnostic.severity.HINT] = "󰠠 ",
+          [vim.diagnostic.severity.INFO] = " ",
+        },
+      },
     })
+
+    -- Set default capabilities for all LSP servers
+    vim.lsp.config("*", {
+      capabilities = capabilities,
+    })
+
+    vim.lsp.config("ruby_lsp", {
+      capabilities = capabilities,
+    })
+    vim.lsp.enable("ruby_lsp")
+
+    -- Configure lua_ls with custom settings
+    vim.lsp.config("lua_ls", {
+      settings = {
+        Lua = {
+          -- make the language server recognize "vim" global
+          diagnostics = {
+            globals = { "vim" },
+          },
+          completion = {
+            callSnippet = "Replace",
+          },
+        },
+      },
+    })
+
+    -- Mason will install and enable servers automatically
+    mason_lspconfig.setup()
   end,
 }
