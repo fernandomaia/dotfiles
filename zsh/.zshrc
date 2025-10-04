@@ -6,8 +6,6 @@ export ZSH=$HOME/.oh-my-zsh
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-ZSH_THEME="spaceship"
-
 export XDG_CONFIG_HOME=$HOME/.config
 
 # Uncomment the following line to use case-sensitive completion.
@@ -99,6 +97,7 @@ fi
 export PATH=~/.yarn/bin:$PATH
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval "$($HOME/.local/bin/mise activate zsh)"
 
+eval "$($HOME/.local/bin/mise activate zsh)"
 eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
