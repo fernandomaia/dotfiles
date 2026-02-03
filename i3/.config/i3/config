@@ -30,7 +30,7 @@ font pango:monospace 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id kitty
+bindsym $mod+Return exec --no-startup-id $TERMINAL
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -176,6 +176,14 @@ bar {
 # Startup applications
 exec --no-startup-id nm-applet
 exec --no-startup-id feh --bg-scale --randomize ~/Pictures/Wallpapers/*
+
+# Application shortcuts
+bindsym Mod4+w exec --no-startup-id $BROWSER
+
+# Other shortcuts
+bindsym Mod4+a exec --no-startup-id $HOME/bin/switchaudio.sh
+bindsym Mod4+b exec --no-startup-id $TERMINAL -e bluetui
+bindsym Mod4+semicolon exec --no-startup-id dunstctl close-all
 
 bindsym Mod1+Tab focus right
 bindsym Mod1+Shift+Tab focus left
