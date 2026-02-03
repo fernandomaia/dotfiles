@@ -96,7 +96,7 @@ fi
 
 export PATH=~/.yarn/bin:$PATH
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 
 eval "$($HOME/.local/bin/mise activate zsh)"
 eval "$(zoxide init zsh)"
