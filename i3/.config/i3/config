@@ -199,14 +199,10 @@ bindsym XF86MonBrightnessUp exec --no-startup-id changebrightness up # increase 
 bindsym XF86MonBrightnessDown exec --no-startup-id changebrightness down # decrease screen brightness
 
 # Screenshot
-# Screenshot to clipboard
-# cross cursor
-# entire screen
 bindsym --release $mod+p exec maim -s -u | xclip -selection clipboard -t image/png -i && dunstify -t 1000 "Screenshot copied to clipboard."
 bindsym $mod+Shift+p exec maim -s -u | tee ~/Pictures/screenshots/`date +%Y-%m-%d_%H:%M:%S`.png  && dunstify -t 1000 "Screenshot saved."
 bindsym $mod+Mod4+3 exec maim -s -u -d 3 | xclip -selection clipboard -t image/png -i && dunstify -t 1000 "Screenshot copied to clipboard."
 bindsym $mod+Mod4+p exec maim -u -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-# Add shortcut to take screenshot with shadow from `maim --help`
 
 # Enable float for some windows
 for_window [class="^Arandr$"] floating enable
@@ -218,11 +214,6 @@ exec --no-startup-id "syndaemon -i 0.5 K -d"
 # Lock screen stuff
 set $Locker exec betterlockscreen -l dim
 bindsym Mod4+l $Locker
-# Missing lock screen when xautolock runs
-#exec --no-startup-id xautolock -time 1 -locker "xset dpms force off" -corners 000- -notify 10 -notifier "notify-send -u critical -t 10000 'LOCKING in 10s'"
-exec --no-startup-id xautolock -time 5 -locker "xset dpms force off" -corners 000- -notify 11 -notifier "notify-send -t 10000 'LOCKING in 10s'"
-exec --no-startup-id xautolock -time 7 -locker "systemctl suspend" -corners +00-
-#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -e --indicator --pass-media-keys --pass-screen-keys &
 
 workspace_layout tabbed
 
