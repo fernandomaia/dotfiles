@@ -191,12 +191,12 @@ bindsym Mod1+Shift+Tab focus left
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id changevolume up
 bindsym XF86AudioLowerVolume exec --no-startup-id changevolume down
-bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle
-bindsym XF86AudioMicMute exec amixer sset Capture toggle && amixer -c0 sset Capture toggle
+bindsym XF86AudioMute exec --no-startup-id changevolume mute
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id changebrightness up # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id changebrightness down # decrease screen brightness
 
 # Screenshot
 # Screenshot to clipboard
