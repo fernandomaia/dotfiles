@@ -28,6 +28,12 @@ return {
     },
   },
   {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {},
+  },
+  {
     "rcarriga/nvim-notify",
     config = function()
       vim.notify = require("notify")
