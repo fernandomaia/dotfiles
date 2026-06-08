@@ -1,8 +1,11 @@
 return {
   'nvim-telescope/telescope.nvim',
-  tag = '0.1.5',
+  version = '*',
   dependencies = {
-    'nvim-lua/plenary.nvim'
+    'nvim-lua/plenary.nvim',
+    {
+      'nvim-telescope/telescope-fzf-native.nvim', build = 'make'
+    },
   },
 
   config = function()
@@ -30,6 +33,15 @@ return {
         builtin.live_grep()
       end,
       { desc = 'Search for a string in your current working directory and get results live as you type, respects .gitignore' }
+    )
+    vim.keymap.set('n', '<leader>pS',
+      function()
+        local dir = vim.fn.input('Search dir: ', '', 'dir')
+        if dir ~= '' then
+          builtin.live_grep({ search_dirs = { dir } })
+        end
+      end,
+      { desc = 'Live grep in a specific directory' }
     )
     vim.keymap.set('n', '<leader>pb',
       function()
